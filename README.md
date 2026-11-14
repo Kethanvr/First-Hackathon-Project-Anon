@@ -19,7 +19,7 @@ python manage.py runserver
 
 Open `http://127.0.0.1:8000`. On Windows, activate the environment with `.venv\Scripts\Activate.ps1` instead of the `source` command.
 
-The repository's Django settings are development-only. Do not expose or deploy this configuration as-is. Some AI-backed views may also need provider credentials; the current project does not document a safe environment-based setup for them.
+Set `DJANGO_SECRET_KEY` to a fresh random value before starting Django. `DJANGO_DEBUG` defaults to `false`; only set it to `true` for local development. Set `DJANGO_ALLOWED_HOSTS` to a comma-separated list when serving from non-local hostnames. Do not expose or deploy this learning project as-is. AI-backed views require `GEMINI_API_KEY` in the server environment. Never place it in browser code or commit its value.
 
 ## Source layout
 
