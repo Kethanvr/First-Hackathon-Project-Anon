@@ -1,61 +1,31 @@
-# 📘 VedaVerse
+# VedaVerse — academic AI prototype
 
-🚀 Welcome to **Academic AI Suite**! This powerful, AI-driven application is here to elevate your academic experience—especially if you’re diving deep into subjects like math, physics, and chemistry. With an array of unique tools, it allows you to explore and engage with your academic PDFs like never before. Upload a PDF, ask questions, generate quizzes, create audiobooks, and even sketch out equations. Dive in and let AI transform the way you study!
+This repository contains an early academic project exploring PDF question answering and related study tools. The Django app is under `rag/edu_rag/ed`; the `rag/` directory also contains experiments for document processing, audio, OCR, and a browser script.
 
-## 🎉 Features Overview
+The Django app includes views for PDF upload, document questions, quiz generation, text-to-speech, and a sketchbook flow. These are prototype features, not a production-ready service.
 
-### ❓ Ask Questions from Your PDFs
-Using Retrieval-Augmented Generation (RAG) powered by OpenAI, you can ask questions directly from your PDF content and receive clear, context-based answers. Get ready to understand those tricky concepts in real time!
+## Run locally
 
-### ✍️ Equation & Reaction Sketchbook
-Got equations or chemical reactions to jot down? Use the integrated Gemini OCR to recognize handwritten or drawn equations and chemical reactions in math, physics, or chemistry. The sketchbook is implemented using **Tkinter** as a child process for a seamless experience.
-
-### 📚 Quiz Generator
-Build custom quizzes straight from your PDFs! Test your knowledge with automatically generated questions—perfect for self-study and review.
-
-### 🔊 PDF to Audiobook Converter
-Convert any academic PDF into an audio file! Create your own audiobooks and take your studies on the go for a hands-free learning experience.
-
-### 📤 Upload & Explore
-Upload your own PDFs to unlock all these features! With Academic AI Suite, you’ll gain new perspectives on academic content using the power of Generative AI.
-
-## ⚙️ Built With
-- **Backend**: Django 🐍
-- **OCR**: Gemini 🔍
-- **AI**: OpenAI’s RAG for interactive question-answering 🤖
-- **Sketchbook**: Tkinter for equation drawing ✏️
-
-## 🚀 Getting Started
-
-### 🔗 Resources
-## 📺 Demo Video
-- [Google Drive Folder](https://drive.google.com/drive/folders/1dGYyOKPZSTcMYLHpUr57heVoE06tp20B?usp=drive_link) for additional files and resources.
-
-
-Clone this repo:
+Requires Python. From the repository root, create a virtual environment and install the Django app's dependencies from the tracked manifest:
 
 ```bash
-git clone https://github.com/your-username/academic-ai-suite.git  # Use the GitHub link above to access the repository.
-cd academic-ai-suite
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the app:
-
-```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r rag/requirements.txt
+cd rag/edu_rag/ed
+python manage.py migrate
 python manage.py runserver
 ```
 
-Open your browser and go to [http://localhost:8000](http://localhost:8000) to start exploring!
+Open `http://127.0.0.1:8000`. On Windows, activate the environment with `.venv\Scripts\Activate.ps1` instead of the `source` command.
 
+The repository's Django settings are development-only. Do not expose or deploy this configuration as-is. Some AI-backed views may also need provider credentials; the current project does not document a safe environment-based setup for them.
 
-## 🤝 Contributing
-Got ideas to make Academic AI Suite even better? We’d love to hear from you! Feel free to open issues, submit pull requests, or suggest features. Let’s build a better learning tool together!
+## Source layout
 
+- `rag/edu_rag/ed/` — Django project
+- `rag/edu_rag/ed/app/` — document, quiz, audio, and sketch views
+- `rag/requirements.txt` — dependencies used by the Django app
+- `rag/main.py` — separate Selenium experiment
 
-Enjoy exploring your academic PDFs with the power of Generative AI! 🚀📘🔍
+This is a learning project; the setup and AI integrations may need additional work.
