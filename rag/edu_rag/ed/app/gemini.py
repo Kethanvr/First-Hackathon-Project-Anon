@@ -1,7 +1,10 @@
 import google.generativeai as genai
 import os
 import base64
-genai.configure(api_key='AIzaSyDKBPFjPUjx98CKSLt-YAFz_QO3m0Lqt5o')
+api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+    raise RuntimeError("GEMINI_API_KEY must be set in the server environment")
+genai.configure(api_key=api_key)
 def prep_image(image_path):
     # Upload the file and print a confirmation.
     sample_file = genai.upload_file(path=image_path,

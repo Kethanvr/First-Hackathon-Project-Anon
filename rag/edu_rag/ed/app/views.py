@@ -209,7 +209,7 @@ from django.shortcuts import render, HttpResponse
 import google.generativeai as genai
 
 # Configure Google Gemini API key
-genai.configure(api_key='AIzaSyC5Dq6Pb_YJGlMsa5WR0pufFjTtmhhNc7M')
+from .gemini import genai
 
 def prep_image(image_path):
     """Uploads the image file and returns the sample file object."""
